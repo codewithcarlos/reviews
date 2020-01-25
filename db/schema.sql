@@ -11,3 +11,11 @@ CREATE TABLE listings (
   title VARCHAR(255),
   creation_tsz INT
 );
+
+CREATE TABLE feedback (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  message text,
+  value INT,
+  creation_tsz INT
+)
