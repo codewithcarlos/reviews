@@ -110,3 +110,65 @@ h3 {
 .ui-toolkit .pb-xs-3 {
   padding-bottom: 18px;
 }
+.ui-toolkit .flag {
+  display: table;
+  width: 100%;
+}
+.ui-toolkit .flag-img {
+  padding-right: 12px;
+}
+.ui-toolkit .flag-img {
+  display: table-cell;
+  vertical-align: middle;
+}
+.ui-toolkit .vertical-align-top {
+  vertical-align: top;
+}
+a:link,
+a:visited {
+  color: #222;
+  text-decoration: underline;
+}
+.ui-toolkit img {
+  border: 0;
+}
+.ui-toolkit .bg-gray-darker {
+  background-color: #e1e3df;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+.ui-toolkit .circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ui-toolkit .width-50px {
+  width: 50px;
+}
+.ui-toolkit .height-50px {
+  height: 50px;
+}
+.ui-toolkit .flag-body,
+.ui-toolkit .flag-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50px;
+}
+.ui-toolkit .flag-body {
+  width: 100%;
+  display: block;
+}
+.ui-toolkit .text-gray-darker {
+  color: #222;
+}
+.ui-toolkit .mb-xs-1 {
+  margin-bottom: 6px;
+}
+.ui-toolkit .p-xs-0 {
+  padding: 0px;
+}
+
+.ui-toolkit .mt-xs-1 {
+  margin-top: 6px;
+}
+.reviews-container .review-text-container {
+  margin-left: 62px;
+}

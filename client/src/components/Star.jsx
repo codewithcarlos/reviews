@@ -1,6 +1,7 @@
 import React from "react";
 
 const Star = () => {
+  
   return (
     <span className="stars-svg">
       <span className="etsy-icon stars-svg-star">
