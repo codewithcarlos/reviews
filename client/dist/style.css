@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+h3 {
+  margin: 0px;
+}
+
+.ui-toolkit [class*="col-xs-"],
+.ui-toolkit [class*="col-sm-"],
+.ui-toolkit [class*="col-md-"],
+.ui-toolkit [class*="col-lg-"],
+.ui-toolkit [class*="col-xl-"] {
+  float: left;
+  width: 100%;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.ui-toolkit .pl-lg-0 {
+  padding-left: 0px;
+}
+.ui-toolkit .pr-lg-0 {
+  padding-right: 0px;
+}
+.ui-toolkit .pt-md-1 {
+  padding-top: 6px;
+}
+.ui-toolkit .pb-xs-2 {
+  padding-bottom: 12px;
+}
+.ui-toolkit .mt-md-2 {
+  margin-top: 12px;
+}
+.ui-toolkit .b-lg-0 {
+  border: 0px solid #e1e3df;
+}
+.ui-toolkit .bg-white {
+  background-color: #fff;
+}
+.ui-toolkit {
+  box-sizing: border-box;
+  margin: 0;
+  color: #222;
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+.ui-toolkit .pr-xs-8 {
+  padding-right: 48px;
+}
+.ui-toolkit .col-xs-8 {
+  width: 66.66667%;
+}
+.ui-toolkit .etsy-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  vertical-align: middle;
+  width: 24px;
+}
+.ui-toolkit .stars-svg .etsy-icon {
+  height: 18px;
+  width: 18px;
+}
+
+.ui-toolkit .text-body-larger {
+  font-size: 16px;
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: normal;
+  display: inline-block;
+}
+
+.ui-toolkit .mr-xs-2 {
+  margin-right: 12px;
+}
+
+.ui-toolkit .stars-svg {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ui-toolkit .mt-xs-2 {
+  margin-top: 12px;
+}
+.ui-toolkit .align-items-center {
+  /* align-items: center !important; */
+  line-height: 1.5;
+}
+.ui-toolkit .display-flex-xs {
+  display: flex !important;
+}
+.aggregate_rating .stars-svg {
+  line-height: 1;
+}
+.ui-toolkit .pl-xs-1 {
+  padding-left: 6px;
+}
+.ui-toolkit .text-gray-lighter {
+  color: #595959;
+}
+.ui-toolkit .pb-xs-3 {
+  padding-bottom: 18px;
+}
