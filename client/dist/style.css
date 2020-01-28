@@ -172,3 +172,72 @@ a:visited {
 .reviews-container .review-text-container {
   margin-left: 62px;
 }
+.wt-text-body-01 {
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+.ui-toolkit .overflow-hidden {
+  overflow: hidden;
+}
+.ui-toolkit .mt-xs-3 {
+  margin-top: 18px;
+}
+.review-listing-card {
+  border-radius: 2px;
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+}
+.ui-toolkit .text-gray-lightest {
+  color: #757575;
+}
+.wt-text-caption {
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 18px;
+}
+.ui-toolkit .display-inline-block {
+  display: inline-block;
+}
+.reviews-container .max-width-220px {
+  max-width: 200px;
+}
+.ui-toolkit .ml-xs-8 {
+  margin-left: 48px;
+}
+.wt-btn.wt-btn,
+.wt-btn.wt-btn:hover,
+.wt-btn.wt-btn:focus {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+}
+.wt-btn.wt-btn--small {
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 36px;
+  min-width: 36px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+.wt-btn.wt-btn--transparent {
+  color: #222222;
+}
+.ui-toolkit .etsy-icon svg {
+  display: block;
+}
+.etsy-icon.wt-icon--smaller,
+.wt-icon.wt-icon--smaller {
+  height: 18px;
+  width: 18px;
+}
