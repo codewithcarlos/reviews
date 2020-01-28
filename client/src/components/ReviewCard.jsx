@@ -2,6 +2,7 @@ import React from "react";
 import ReviewFlag from "./ReviewFlag.jsx";
 import ReviewText from "./ReviewText.jsx";
 import ReviewHelpfulButton from "./ReviewHelpfulButton.jsx";
+import ReviewImage from "./ReviewImage.jsx";
 
 const ReviewCard = () => {
   return (
@@ -11,6 +12,7 @@ const ReviewCard = () => {
         <ReviewText />
         <ReviewHelpfulButton />
       </div>
+      < ReviewImage />
     </div>
   );
 };

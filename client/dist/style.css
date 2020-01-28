@@ -241,3 +241,87 @@ a:visited {
   height: 18px;
   width: 18px;
 }
+.ui-toolkit .ml-xs-2 {
+  margin-left: 12px;
+}
+.ui-toolkit .mt-xs-4 {
+  margin-top: 24px;
+}
+a.wt-transparent-card,
+div.wt-transparent-card,
+button.wt-transparent-card {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+a.wt-transparent-card:before,
+div.wt-transparent-card:before,
+button.wt-transparent-card:before {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  border-radius: 9px;
+  top: -9px;
+  right: -9px;
+  bottom: -9px;
+  left: -9px;
+  z-index: -1;
+  box-shadow: 0 2px 18px rgba(34, 34, 34, 0.2);
+  background: #ffffff;
+  border: 1px dotted transparent;
+  transform: scale(0.96);
+  transition: transform 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42),
+    opacity 150ms ease-out, border-color 200ms ease-out;
+}
+.review-appreciation-photo {
+  border-radius: 6px;
+  height: 195px;
+  width: 195px;
+  overflow: hidden;
+}
+
+.ui-toolkit button,
+.ui-toolkit select {
+  text-transform: none;
+}
+.reviews-container.reviews-container button.unstyled-button {
+  color: #222 !important;
+  text-decoration: underline !important;
+}
+.ui-toolkit .unstyled-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  padding: 0;
+  height: inherit;
+  text-align: left;
+  color: #222222;
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.ui-toolkit .bg-gray-darker {
+  background-color: #e1e3df;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+.ui-toolkit .display-block {
+  display: block;
+}
+.ui-toolkit .width-full {
+  width: 100%;
+}
