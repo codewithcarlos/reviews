@@ -17,5 +17,8 @@ CREATE TABLE feedback (
   user_id INT NOT NULL,
   message text,
   value INT,
-  creation_tsz INT
+  creation_tsz INT,
+  reviewerAvatar text,
+  reviewerName VARCHAR(255),
+  reviewDate VARCHAR(15)
 )

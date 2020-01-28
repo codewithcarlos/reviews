@@ -11,4 +11,8 @@ const db = mysql.createConnection({
 
 db.connect();
 
+function getReviewsForListing(listing_id) {
+  let qryStr = `SELECT b.* from listings a LEFT JOIN feedback b ON a.user_id = b.user_id WHERE a.user_id = 124581118 and message IS NOT NULL LIMIT 7;`;
+}
+
 module.exports = { db };
