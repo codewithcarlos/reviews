@@ -325,3 +325,6 @@ button.wt-transparent-card:before {
 .ui-toolkit .width-full {
   width: 100%;
 }
+.ui-toolkit .mb-sm-8 {
+  margin-bottom: 48px;
+}

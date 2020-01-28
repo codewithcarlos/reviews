@@ -22,3 +22,9 @@ CREATE TABLE feedback (
   reviewerName VARCHAR(255),
   reviewDate VARCHAR(15)
 )
+
+CREATE TABLE images (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  listing_id INT NOT NULL,
+  image_url text
+);

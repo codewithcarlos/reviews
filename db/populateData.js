@@ -86,14 +86,44 @@ var insertMockFeedData = () => {
 
 // insertMockFeedData();
 
-let generateFakeProfileImage = () => {
-  let reviewerAvatar = faker.image.avatar();
-  let reviewerName = faker.name.firstName() + " " + faker.name.lastName();
-  let dateStr = faker.date
-    .past()
-    .toString()
-    .split(" ");
-  let reviewDate = `${dateStr[1]} ${dateStr[2]}, ${dateStr[3]}`;
-  console.log(avatar);
-};
-// generateFakeProfileImage();
+const insertImageData = () => {
+  let i = 0;
+   function addImages() {
+    axios.get(`https://openapi.etsy.com/v2/listings/${mockData[i].listing_id}/images?api_key=${etsy_api_key}`)
+    .then(response => {
+      let images = response.data.results;
+      images.forEach(image => {
+        let image_url = image.url_fullxfull;
+        let listing_id = image.listing_id;
+        let params = [
+          image_url, 
+          listing_id,
+        ];
+        let queryStr = `INSERT INTO images (image_url, listing_id) VALUES (?, ?);`;
+        db.query(queryStr, params, (err, data) => {
+          if (err) {
+            console.log("error inserting data" + i);
+          }
+          else {
+            console.log("successfully inserted data " + i);
+          }
+        });
+      })
+    })
+    .then(() => {
+      i++;
+      if (i < 100) {                           
+        setTimeout(addImages, 1000);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      i++;
+      if (i < 100) {
+        setTimeout(addImages, 1000);
+      }
+    })
+  }
+  addImages();
+}
+insertImageData();
