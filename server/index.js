@@ -1,12 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
 const db = require("../db/index");
+const path = require("path");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
+
+// app.get("/listings", (req, res) => {
+//   console.log("hello");
+// });
 
 app.get("/user/:id", (req, res) => {
   console.log("the params are:", req.params);
@@ -16,6 +21,13 @@ app.get("/user/:id", (req, res) => {
     }
     res.status(200).send(data);
   });
+});
+
+app.get("/listings/:id", (req, res) => {
+  console.log("hello", req.params);
+  let test = path.join(__dirname, "..", "client", "dist", "index.html");
+  // res.sendFile(test);
+  res.send(req.params.id);
 });
 
 app.listen(PORT, () => {
