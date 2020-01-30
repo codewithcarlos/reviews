@@ -328,3 +328,6 @@ button.wt-transparent-card:before {
 .ui-toolkit .mb-sm-8 {
   margin-bottom: 48px;
 }
+.ui-toolkit a {
+  text-decoration: underline;
+}

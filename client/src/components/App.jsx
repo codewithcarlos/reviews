@@ -13,6 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: 124581118,
       messages: [],
       values: [],
       reviewerAvatars: [],
@@ -20,32 +21,28 @@ class App extends React.Component {
       reviewDates: []
     };
     this.getListingReviews = this.getListingReviews.bind(this);
+    this.changeURL = this.changeURL.bind(this);
   }
-  
 
   componentDidMount() {
-    window.addEventListener("locationchange", function() {
-      console.log("location changed!");
+    // this.getListingReviews();
+    window.addEventListener("itemChanged", event => {
+      this.setState({ id: Number(event.detail.listing_id) }, () =>
+        this.getListingReviews()
+      );
     });
-    console.log(this.props);
-    this.getListingReviews();
-  }
-
-  componentDidUpdate(prevProps) {
-    // console.log("Prevprops", prevProps);
-    // console.log("Cuurent id", this.props.match.params.id);
   }
 
   getListingReviews() {
     axios
-      .get("/user/124581118")
+      .get(`/user/${this.state.id}`)
       .then(response => {
         let messages = [];
         let values = [];
         let reviewerAvatars = [];
         let reviewerNames = [];
         let reviewDates = [];
-        console.log(response.data);
+        // console.log(response.data);
 
         response.data.forEach(review => {
           messages.push(review.message);
@@ -68,10 +65,26 @@ class App extends React.Component {
       });
   }
 
+  changeURL(e, user) {
+    console.log("the user is", user);
+    // create and dispatch the event
+    var event = new CustomEvent("itemChanged", {
+      detail: {
+        listing_id: user
+      }
+    });
+    window.dispatchEvent(event);
+  }
+
   render() {
+    let userArr = [124581118, 234858692, 163513724];
+    let randomUser = userArr[Math.floor(Math.random() * 3)];
+    let test = `/listings/${randomUser}`;
     return (
       <div className="col-xs-8 pr-xs-8">
-        <Link to="/listings/124581118">Home</Link>
+        <Link to={test} onClick={e => this.changeURL(e, randomUser)}>
+          Home
+        </Link>
         <hr />
         <div data-lazy-load-component-trigger=""></div>
         <Switch>

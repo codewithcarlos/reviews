@@ -1,20 +1,16 @@
 import React from "react";
 
-const ReviewText = () => {
+const ReviewText = ({ message }) => {
   return (
     <div className="review-text-container mt-xs-1">
       <div className="overflow-hidden wt-text-body-01">
         <div className="max-height-text-container is-long break-word">
           <div className="text-gray prose" id="review-preview-toggle-0">
-            <div>
-              100% obsessed with this pot. Flawlessly made and so unique. Also
-              appreciated the biodegradable cornstarch peanuts in the packaging!
-            </div>
+            <div>{message}</div>
           </div>
         </div>
       </div>
       <a
-        href="#"
         className="flag text-gray text-decoration-none mt-xs-3"
         data-review-link=""
       >

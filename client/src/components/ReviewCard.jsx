@@ -20,7 +20,7 @@ const ReviewCard = ({
           reviewerName={reviewerName}
           reviewDate={reviewDate}
         />
-        <ReviewText />
+        <ReviewText message={message}/>
         <ReviewHelpfulButton />
       </div>
       <ReviewImage />

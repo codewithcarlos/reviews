@@ -12,7 +12,7 @@ const ReviewsContainer = ({
   return (
     <div className="reviews-container appears-ready">
       <Ratings />
-      {values.map((value, index) => (
+      {messages.map((value, index) => (
         <ReviewCard
           message={messages[index]}
           reviewerAvatar={reviewerAvatars[index]}

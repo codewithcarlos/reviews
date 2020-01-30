@@ -6,7 +6,7 @@ const ReviewFlag = ({ value, reviewerAvatar, reviewerName, reviewDate }) => {
   return (
     <div className="flag">
       <div className="flag-img vertical-align-top">
-        <a href="#" tabIndex="-1" aria-hidden="true">
+        <a  tabIndex="-1" aria-hidden="true">
           <img
             className="circle bg-gray-darker width-50px height-50px"
             src={reviewerAvatar}
@@ -16,7 +16,7 @@ const ReviewFlag = ({ value, reviewerAvatar, reviewerName, reviewDate }) => {
         </a>
       </div>
       <div className="flag-body text-gray-darker text-body">
-        <a className="text-link-underline display-inline-block" href="#">
+        <a className="text-link-underline display-inline-block" >
           {reviewerName}
         </a>
         <span>&nbsp;</span>
