@@ -24,7 +24,8 @@ LEFT JOIN feedback b
   ON a.user_id = b.user_id
 LEFT JOIN (SELECT * FROM images WHERE listing_id = '${listing_id}' LIMIT 1) as c
   ON a.listing_id = c.listing_id
-WHERE a.listing_id = '${listing_id}' and b.message IS NOT NULL;`;
+WHERE a.listing_id = '${listing_id}' and b.message IS NOT NULL
+ORDER BY b.reviewDate DESC;`;
 
   db.query(qryStr, (err, data) => {
     err ? callback(err, null) : callback(null, data);
