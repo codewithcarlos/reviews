@@ -11,9 +11,21 @@ const db = mysql.createConnection({
 
 db.connect();
 
-function getReviewsForUser(user_id, callback) {
-  let qryStr = `SELECT b.* from listings a LEFT JOIN feedback b ON a.user_id = b.user_id WHERE a.user_id = '${user_id}' and message IS NOT NULL;`;
-  SELECT b.* from listings a LEFT JOIN feedback b ON a.user_id = b.user_id WHERE a.user_id = '234858692' and message IS NOT NULL;
+function getReviewsForUser(listing_id, callback) {
+  console.log(listing_id, " is the listing id");
+  let qryStr = `SELECT 
+  b.*, 
+  a.reviews_count,
+  c.image_url,
+  a.listing_id,
+  a.title
+FROM listings a 
+LEFT JOIN feedback b 
+  ON a.user_id = b.user_id
+LEFT JOIN (SELECT * FROM images WHERE listing_id = '${listing_id}' LIMIT 1) as c
+  ON a.listing_id = c.listing_id
+WHERE a.listing_id = '${listing_id}' and b.message IS NOT NULL;`;
+
   db.query(qryStr, (err, data) => {
     err ? callback(err, null) : callback(null, data);
   });

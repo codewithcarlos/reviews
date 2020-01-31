@@ -1,7 +1,7 @@
 import React from "react";
 import Star from "./Star.jsx";
 
-const Ratings = () => {
+const Ratings = ({ reviewsCount }) => {
   let arr = [1, 2, 3, 4, 5];
   return (
     <div className="col-group mt-xs-1 mt-md-2 bg-white b-md-1 b-lg-0 pl-xs-2 pr-xs-2 pb-xs-2 pt-md-1 pl-lg-0 pr-lg-0">
@@ -14,7 +14,7 @@ const Ratings = () => {
             ))}
           </span>
           <span>
-            <span className="pl-xs-1 text-gray-lighter">(46)</span>
+            <span className="pl-xs-1 text-gray-lighter">{`(${reviewsCount})`}</span>
           </span>
         </div>
       </div>

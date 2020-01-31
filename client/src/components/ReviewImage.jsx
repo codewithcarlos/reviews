@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewImage = () => {
+const ReviewImage = ({ imageUrl }) => {
   return (
     <div className="mt-xs-4 ml-xs-2">
       <div className="wt-transparent-card">
@@ -16,7 +16,7 @@ const ReviewImage = () => {
           >
             <img
               className="width-full has-hover-state display-block bg-gray-darker"
-              src="https://i.etsystatic.com/iap/a4ffc0/764430217/iap_300x300.764430217_9nkdk50c.jpg?version=0"
+              src={imageUrl}
               data-pin-nopin="true"
               alt="Sara Cohen added a photo of their purchase"
             />

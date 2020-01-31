@@ -34,6 +34,13 @@ var insertMockFeedData = () => {
         `https://openapi.etsy.com/v2/users/${mockData[j]["user_id"]}/feedback/as-seller?api_key=${etsy_api_key}`
       )
       .then(response => {
+        let updateStr = `UPDATE listings SET reviews_count = ${response.data.count} WHERE user_id = ${mockData[j]["user_id"]}`;
+        db.query(updateStr, (err, data) => {
+          if (err) {
+            console.log(err);
+            throw "error updating reviews count";
+          }
+        });
         let messageHash = {};
         response.data.results.forEach(review => {
           if (messageHash[review.message]) {
@@ -98,11 +105,14 @@ const insertImageData = () => {
         images.forEach(image => {
           let image_url = image.url_fullxfull;
           let listing_id = image.listing_id;
-          let params = [image_url, listing_id];
-          let queryStr = `INSERT INTO images (image_url, listing_id) VALUES (?, ?);`;
+          let user_id = mockData[i].user_id;
+          let params = [image_url, listing_id, user_id];
+          let queryStr = `INSERT INTO images (image_url, listing_id, user_id) VALUES (?, ?, ?);`;
+          if (!listing_id) throw "listing id is null";
           db.query(queryStr, params, (err, data) => {
             if (err) {
-              throw `error inserting data ${i}`;
+              console.log(err);
+              throw "error inserting review into db";
             }
           });
         });

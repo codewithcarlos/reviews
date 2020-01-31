@@ -7,11 +7,14 @@ const ReviewsContainer = ({
   values,
   reviewerAvatars,
   reviewerNames,
-  reviewDates
+  reviewDates,
+  reviewsCount,
+  imageUrl,
+  title
 }) => {
   return (
     <div className="reviews-container appears-ready">
-      <Ratings />
+      <Ratings reviewsCount={reviewsCount} />
       {messages.map((value, index) => (
         <ReviewCard
           message={messages[index]}
@@ -20,6 +23,8 @@ const ReviewsContainer = ({
           reviewDate={reviewDates[index]}
           key={index}
           values={values}
+          imageUrl={imageUrl}
+          title={title}
         />
       ))}
     </div>

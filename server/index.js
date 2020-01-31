@@ -13,22 +13,16 @@ app.use(express.static(__dirname + "/../client/dist"));
 //   console.log("hello");
 // });
 
-app.get("/user/:id", (req, res) => {
+app.get("/listings/:id", (req, res) => {
   console.log("the params are:", req.params);
   db.getReviewsForUser(req.params.id, (err, data) => {
     if (err) {
-      return res.status(404).send("User not found");
+      return res.status(404).send("listing not found");
     }
     res.status(200).send(data);
   });
 });
 
-app.get("/listings/:id", (req, res) => {
-  console.log("hello", req.params);
-  let test = path.join(__dirname, "..", "client", "dist", "index.html");
-  // res.sendFile(test);
-  res.send(req.params.id);
-});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

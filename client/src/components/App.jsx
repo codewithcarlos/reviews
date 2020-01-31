@@ -13,21 +13,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 124581118,
+      listingId: 651186954,
       messages: [],
       values: [],
       reviewerAvatars: [],
       reviewerNames: [],
-      reviewDates: []
+      reviewDates: [],
+      reviewsCount: null,
+      imageUrl: null,
+      title: null
     };
     this.getListingReviews = this.getListingReviews.bind(this);
     this.changeURL = this.changeURL.bind(this);
   }
 
   componentDidMount() {
-    // this.getListingReviews();
+    this.getListingReviews();
     window.addEventListener("itemChanged", event => {
-      this.setState({ id: Number(event.detail.listing_id) }, () =>
+      this.setState({ listingId: Number(event.detail.listingId) }, () =>
         this.getListingReviews()
       );
     });
@@ -35,14 +38,21 @@ class App extends React.Component {
 
   getListingReviews() {
     axios
-      .get(`/user/${this.state.id}`)
+      .get(`/listings/${this.state.listingId}`)
       .then(response => {
+        console.log(response.data);
         let messages = [];
         let values = [];
         let reviewerAvatars = [];
         let reviewerNames = [];
         let reviewDates = [];
-        // console.log(response.data);
+        let reviewsCount = response.data[0].reviews_count;
+        let imageUrl = response.data[0].image_url;
+        let listingId = response.data[0].listing_id;
+        let title =
+          response.data[0].title.length > 47
+            ? response.data[0].title.slice(0, 50) + "..."
+            : response.data[0].title;
 
         response.data.forEach(review => {
           messages.push(review.message);
@@ -57,7 +67,11 @@ class App extends React.Component {
           values,
           reviewerAvatars,
           reviewerNames,
-          reviewDates
+          reviewDates,
+          reviewsCount,
+          imageUrl,
+          listingId,
+          title
         });
       })
       .catch(error => {
@@ -65,36 +79,39 @@ class App extends React.Component {
       });
   }
 
-  changeURL(e, user) {
-    console.log("the user is", user);
+  changeURL(e, listing) {
+    console.log("the listing is", listing);
     // create and dispatch the event
     var event = new CustomEvent("itemChanged", {
       detail: {
-        listing_id: user
+        listingId: listing
       }
     });
     window.dispatchEvent(event);
   }
 
   render() {
-    let userArr = [124581118, 234858692, 163513724];
-    let randomUser = userArr[Math.floor(Math.random() * 3)];
-    let test = `/listings/${randomUser}`;
+    let listingArr = [651186954, 721236096, 742799622];
+    let randomListing = listingArr[Math.floor(Math.random() * 3)];
+    let test = `/listings/${randomListing}`;
     return (
       <div className="col-xs-8 pr-xs-8">
-        <Link to={test} onClick={e => this.changeURL(e, randomUser)}>
+        <Link to={test} onClick={e => this.changeURL(e, randomListing)}>
           Home
         </Link>
         <hr />
         <div data-lazy-load-component-trigger=""></div>
         <Switch>
-          <Route path="/listings/:id">
+          <Route path="/listings/:listingId">
             <ReviewsContainer
               messages={this.state.messages}
               values={this.state.values}
               reviewerAvatars={this.state.reviewerAvatars}
               reviewerNames={this.state.reviewerNames}
               reviewDates={this.state.reviewDates}
+              reviewsCount={this.state.reviewsCount}
+              imageUrl={this.state.imageUrl}
+              title={this.state.title}
             />
           </Route>
         </Switch>
