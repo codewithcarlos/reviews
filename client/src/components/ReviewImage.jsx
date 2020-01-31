@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewImage = ({ imageUrl }) => {
+const ReviewImage = ({ image }) => {
   return (
     <div className="mt-xs-4 ml-xs-2">
       <div className="wt-transparent-card">
@@ -14,12 +14,14 @@ const ReviewImage = ({ imageUrl }) => {
             alt="Buyer photo "
             data-js-action="openReviewPhotoOverlay"
           >
-            <img
-              className="width-full has-hover-state display-block bg-gray-darker"
-              src={imageUrl}
-              data-pin-nopin="true"
-              alt="Sara Cohen added a photo of their purchase"
-            />
+            {image && (
+              <img
+                className="width-full has-hover-state display-block bg-gray-darker"
+                src={image}
+                data-pin-nopin="true"
+                alt="Sara Cohen added a photo of their purchase"
+              />
+            )}
           </button>
         </div>
       </div>

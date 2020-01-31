@@ -11,7 +11,8 @@ const ReviewCard = ({
   reviewerName,
   reviewDate,
   imageUrl,
-  title
+  title,
+  image
 }) => {
   return (
     <div className="display-flex-xs flex-direction-row-xs col-xs-12 p-xs-0 mb-sm-8">
@@ -25,7 +26,7 @@ const ReviewCard = ({
         <ReviewText message={message} imageUrl={imageUrl} title={title} />
         <ReviewHelpfulButton />
       </div>
-      <ReviewImage imageUrl={imageUrl} />
+      <ReviewImage image={image} />
     </div>
   );
 };

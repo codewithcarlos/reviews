@@ -21,7 +21,8 @@ class App extends React.Component {
       reviewDates: [],
       reviewsCount: null,
       imageUrl: null,
-      title: null
+      title: null,
+      images: []
     };
     this.getListingReviews = this.getListingReviews.bind(this);
     this.changeURL = this.changeURL.bind(this);
@@ -41,20 +42,24 @@ class App extends React.Component {
       .get(`/listings/${this.state.listingId}`)
       .then(response => {
         console.log(response.data);
-        let messages = [];
-        let values = [];
-        let reviewerAvatars = [];
-        let reviewerNames = [];
-        let reviewDates = [];
-        let reviewsCount = response.data[0].reviews_count;
-        let imageUrl = response.data[0].image_url;
-        let listingId = response.data[0].listing_id;
-        let title =
+        const messages = [];
+        const values = [];
+        const reviewerAvatars = [];
+        const reviewerNames = [];
+        const reviewDates = [];
+        const images = [];
+        const reviewsCount = response.data[0].reviews_count;
+        const imageUrl = response.data[0].image_url;
+        const listingId = response.data[0].listing_id;
+        const title =
           response.data[0].title.length > 47
             ? response.data[0].title.slice(0, 50) + "..."
             : response.data[0].title;
 
         response.data.forEach(review => {
+          const randomIndex = Math.floor(Math.random() * 10);
+          if (randomIndex > 1) review.image_url = null;
+          images.push(review.image_url);
           messages.push(review.message);
           values.push(review.value);
           reviewerAvatars.push(review.reviewerAvatar);
@@ -71,7 +76,8 @@ class App extends React.Component {
           reviewsCount,
           imageUrl,
           listingId,
-          title
+          title,
+          images
         });
       })
       .catch(error => {
@@ -112,6 +118,7 @@ class App extends React.Component {
               reviewsCount={this.state.reviewsCount}
               imageUrl={this.state.imageUrl}
               title={this.state.title}
+              images={this.state.images}
             />
           </Route>
         </Switch>

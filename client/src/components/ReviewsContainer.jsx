@@ -10,7 +10,8 @@ const ReviewsContainer = ({
   reviewDates,
   reviewsCount,
   imageUrl,
-  title
+  title,
+  images
 }) => {
   return (
     <div className="reviews-container appears-ready">
@@ -25,6 +26,7 @@ const ReviewsContainer = ({
           values={values}
           imageUrl={imageUrl}
           title={title}
+          image={images[index]}
         />
       ))}
     </div>
