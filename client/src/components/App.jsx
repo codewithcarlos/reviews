@@ -87,6 +87,7 @@ class App extends React.Component {
 
   changeURL(e, listing) {
     console.log("the listing is", listing);
+
     // create and dispatch the event
     var event = new CustomEvent("itemChanged", {
       detail: {

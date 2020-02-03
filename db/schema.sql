@@ -30,15 +30,3 @@ CREATE TABLE images (
   image_url text,
   user_id INT NOT NULL
 );
-
-
-SELECT 
-  b.*, 
-  a.reviews_count,
-  c.image_url
-FROM listings a 
-LEFT JOIN feedback b 
-  ON a.user_id = b.user_id
-LEFT JOIN images c
-  ON a.listing_id = c.listing_id
-WHERE a.listing_id = '651186954' and b.message IS NOT NULL;
