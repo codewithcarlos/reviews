@@ -1,13 +1,6 @@
 import React from "react";
 import ReviewsContainer from "./ReviewsContainer.jsx";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  withRouter
-} from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -41,7 +34,7 @@ class App extends React.Component {
     axios
       .get(`/listings/${this.state.listingId}`)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         const messages = [];
         const values = [];
         const reviewerAvatars = [];
@@ -86,8 +79,6 @@ class App extends React.Component {
   }
 
   changeURL(e, listing) {
-    console.log("the listing is", listing);
-
     // create and dispatch the event
     var event = new CustomEvent("itemChanged", {
       detail: {
@@ -98,31 +89,21 @@ class App extends React.Component {
   }
 
   render() {
-    let listingArr = [651186954, 721236096, 742799622];
-    let randomListing = listingArr[Math.floor(Math.random() * 3)];
-    let test = `/listings/${randomListing}`;
     return (
       <div className="col-xs-8 pr-xs-8">
-        <Link to={test} onClick={e => this.changeURL(e, randomListing)}>
-          Home
-        </Link>
         <hr />
         <div data-lazy-load-component-trigger=""></div>
-        <Switch>
-          <Route path="/listings/:listingId">
-            <ReviewsContainer
-              messages={this.state.messages}
-              values={this.state.values}
-              reviewerAvatars={this.state.reviewerAvatars}
-              reviewerNames={this.state.reviewerNames}
-              reviewDates={this.state.reviewDates}
-              reviewsCount={this.state.reviewsCount}
-              imageUrl={this.state.imageUrl}
-              title={this.state.title}
-              images={this.state.images}
-            />
-          </Route>
-        </Switch>
+        <ReviewsContainer
+          messages={this.state.messages}
+          values={this.state.values}
+          reviewerAvatars={this.state.reviewerAvatars}
+          reviewerNames={this.state.reviewerNames}
+          reviewDates={this.state.reviewDates}
+          reviewsCount={this.state.reviewsCount}
+          imageUrl={this.state.imageUrl}
+          title={this.state.title}
+          images={this.state.images}
+        />
       </div>
     );
   }
