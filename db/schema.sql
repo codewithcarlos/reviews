@@ -30,3 +30,7 @@ CREATE TABLE images (
   image_url text,
   user_id INT NOT NULL
 );
+
+-- etsy api gives us &#39; instead of an apostrope. code below fixes this issue
+-- UPDATE feedback 
+-- SET message=REPLACE(message, '&#39;',"'");
