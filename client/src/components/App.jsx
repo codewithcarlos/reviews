@@ -2,7 +2,8 @@ import React from "react";
 import ReviewsContainer from "./ReviewsContainer.jsx";
 import axios from "axios";
 
-const baseURL = 'http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/';
+const baseURL =
+  "http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/";
 
 class App extends React.Component {
   constructor(props) {

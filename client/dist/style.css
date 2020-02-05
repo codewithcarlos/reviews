@@ -331,3 +331,58 @@
 #reviews a {
   text-decoration: underline;
 }
+#reviews .col-xs-12 {
+  width: 100%;
+}
+#reviews .pl-xs-0 {
+  padding-left: 0px;
+}
+
+#reviews .wt-tab {
+  display: flex;
+  border-bottom: 2px solid rgba(34, 34, 34, 0.15);
+}
+#reviews .wt-tab .wt-tab__item {
+  white-space: nowrap;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  margin: 0 12px;
+  position: relative;
+  font-size: 16px;
+}
+#reviews .wt-tab .wt-tab__item:first-of-type {
+  margin-left: 0;
+}
+#reviews .wt-tab .wt-tab__item:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -2px;
+  width: 0;
+  border-bottom: 2px solid rgba(34, 34, 34, 0.5);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 200ms cubic-bezier(0.54, 0, 0.54, 1);
+}
+#reviews .wt-tab .wt-tab__item--selected:after,
+#reviews .wt-tab .wt-tab__item[aria-selected="true"]:after {
+  width: 100%;
+  border-bottom-color: #222222;
+}
+
+@media only screen and (min-width: 0) {
+  #reviews .wt-mb-xs-4 {
+    margin-bottom: 24px !important;
+  }
+}

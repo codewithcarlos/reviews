@@ -1,6 +1,7 @@
 import React from "react";
 import Ratings from "./Ratings.jsx";
 import ReviewCard from "./ReviewCard.jsx";
+import ReviewsTab from "./ReviewsTab.jsx";
 
 const ReviewsContainer = ({
   messages,
@@ -16,6 +17,7 @@ const ReviewsContainer = ({
   return (
     <div className="reviews-container appears-ready">
       <Ratings reviewsCount={reviewsCount} />
+      <ReviewsTab />
       {messages.map((value, index) => (
         <ReviewCard
           message={messages[index]}
