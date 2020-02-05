@@ -12,7 +12,7 @@ const db = mysql.createConnection({
 db.connect();
 
 function getReviewsForUser(listing_id, callback) {
-  console.log(listing_id, " is the listing id");
+  // console.log(listing_id, " is the listing id");
   let qryStr = `SELECT 
   b.*, 
   a.reviews_count,

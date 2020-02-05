@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
-app.get("/listings/:id", (req, res) => {
-  console.log("the params are:", req.params);
-  db.getReviewsForUser(req.params.id, (err, data) => {
+app.get("/listings", (req, res) => {
+  console.log("the params are:", req.query.id);
+  db.getReviewsForUser(req.query.id, (err, data) => {
     if (err) {
       return res.status(404).send("listing not found");
     }

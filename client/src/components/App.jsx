@@ -2,6 +2,8 @@ import React from "react";
 import ReviewsContainer from "./ReviewsContainer.jsx";
 import axios from "axios";
 
+const baseURL = 'http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +34,12 @@ class App extends React.Component {
 
   getListingReviews() {
     axios
-      .get(`/listings/${this.state.listingId}`)
+      .get(`/listings`, {
+        params: {
+          id: this.state.listingId
+        },
+        baseURL
+      })
       .then(response => {
         // console.log(response.data);
         const messages = [];
