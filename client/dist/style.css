@@ -1,10 +1,21 @@
 * {
   box-sizing: border-box;
 }
+@media only screen and (min-width: 0) {
+  #reviews .wt-mb-xs-4 {
+    margin-bottom: 24px !important;
+  }
+}
+
+#reviews {
+  text-size-adjust: 100%;
+}
 #reviews h3 {
   margin: 0px;
 }
-
+#reviews .b {
+  font-weight: 600 !important;
+}
 #reviews [class*="col-xs-"],
 #reviews [class*="col-sm-"],
 #reviews [class*="col-md-"],
@@ -156,6 +167,13 @@
   width: 100%;
   display: block;
 }
+#reviews .text-link-underline:hover,
+#reviews .text-link-underline:focus,
+#reviews .text-link-underline:active,
+#reviews .text-link-underline.is-active {
+  cursor: pointer;
+  opacity: 0.8;
+}
 #reviews .text-gray-darker {
   color: #222;
 }
@@ -217,7 +235,10 @@
   font-weight: bold;
   font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
     "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  background-color: #f4f4f4;
+  border-radius: 24px;
 }
+
 #reviews .wt-btn.wt-btn--small {
   font-size: 13px;
   line-height: 1.4;
@@ -381,8 +402,73 @@
   border-bottom-color: #222222;
 }
 
-@media only screen and (min-width: 0) {
-  #reviews .wt-mb-xs-4 {
-    margin-bottom: 24px !important;
-  }
+#reviews .btn {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  height: 38px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+}
+#reviews .btn:hover {
+  color: #595959 !important;
+  cursor: pointer !important;
+  text-decoration: underline !important;
+}
+
+#reviews .btn-link {
+  background-color: transparent;
+  border: none;
+  color: #222222;
+  text-decoration: underline;
+  padding: 0;
+  height: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  font-size: inherit;
+}
+#reviews .pt-xs-2 {
+  padding-top: 12px;
+}
+#reviews .pr-md-0 {
+  padding-right: 0px;
+}
+#reviews .pl-md-0 {
+  padding-left: 0px;
+}
+
+/* carousel */
+#reviews .mb-xs-3 {
+  margin-bottom: 18px;
+}
+#reviews .review-carousel-header {
+  display: flex;
+  justify-content: space-between;
+}
+#reviews .carousel-navigate .btn {
+  border: none;
+  font-size: 1.5rem;
+}
+#reviews .carousel-navigate .btn:hover {
+  text-decoration: none !important;
+}
+#reviews .no-reviews {
+  display: inline-block;
+  margin-left: 10px;
+  top: 3px;
+  position: relative;
+}
+
+#reviews .no-reviews .stars-svg-star {
+  color: #e1e3df;
 }

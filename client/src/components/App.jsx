@@ -1,9 +1,12 @@
 import React from "react";
 import ReviewsContainer from "./ReviewsContainer.jsx";
 import axios from "axios";
+import ReviewsCarousel from "./ReviewsCarousel.jsx";
+import Star from "./Star.jsx";
 
-const baseURL =
-  "http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/";
+// const baseURL =
+//   "http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/";
+const baseURL = "";
 
 class App extends React.Component {
   constructor(props) {
@@ -97,23 +100,39 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="col-xs-8 pr-xs-8">
-        <hr />
-        <div data-lazy-load-component-trigger=""></div>
-        <ReviewsContainer
-          messages={this.state.messages}
-          values={this.state.values}
-          reviewerAvatars={this.state.reviewerAvatars}
-          reviewerNames={this.state.reviewerNames}
-          reviewDates={this.state.reviewDates}
-          reviewsCount={this.state.reviewsCount}
-          imageUrl={this.state.imageUrl}
-          title={this.state.title}
-          images={this.state.images}
-        />
-      </div>
-    );
+    if (this.state.messages.length === 1 && this.state.messages[0] === null) {
+      let arr = [1, 2, 3, 4, 5];
+      return (
+        <div className="col-xs-8 pr-xs-8 no-reviews">
+          <hr />
+          <span>
+            {arr.map((star, key) => (
+              <Star key={key} />
+            ))}
+          </span>
+          <p className="no-reviews">No Reviews Yet</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="col-xs-8 pr-xs-8">
+          <hr />
+          <div data-lazy-load-component-trigger=""></div>
+          <ReviewsContainer
+            messages={this.state.messages}
+            values={this.state.values}
+            reviewerAvatars={this.state.reviewerAvatars}
+            reviewerNames={this.state.reviewerNames}
+            reviewDates={this.state.reviewDates}
+            reviewsCount={this.state.reviewsCount}
+            imageUrl={this.state.imageUrl}
+            title={this.state.title}
+            images={this.state.images}
+          />
+          {/* <ReviewsCarousel /> */}
+        </div>
+      );
+    }
   }
 }
 

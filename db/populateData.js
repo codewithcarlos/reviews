@@ -91,7 +91,7 @@ var insertMockFeedData = () => {
   populate();
 };
 
-// insertMockFeedData();
+insertMockFeedData();
 
 const insertImageData = () => {
   let i = 0;
