@@ -91,7 +91,7 @@ var insertMockFeedData = () => {
   populate();
 };
 
-insertMockFeedData();
+// insertMockFeedData();
 
 const insertImageData = () => {
   let i = 0;
@@ -135,3 +135,28 @@ const insertImageData = () => {
   addImages();
 };
 // insertImageData();
+
+function generateRandomReviewsCountForItem() {
+  for (let i = 6; i <= 100; i++) {
+    const randomBucket = [0.05, 0.1, 0.2, 0.5, 1];
+    let qrySelect = `SELECT * FROM listings WHERE id=${i};`;
+    db.query(qrySelect, (err, data) => {
+      if (err) {
+        console.log("listing not found");
+      } else {
+        let reviewsForListing = Math.ceil(
+          randomBucket[Math.floor(Math.random() * 5)] * data[0]["reviews_count"]
+        );
+        let queryStr = `UPDATE listings SET reviews_for_item = ${reviewsForListing} WHERE id = ${i};`;
+        db.query(queryStr, (err, data) => {
+          if (err) {
+            console.log(error);
+          } else {
+            console.log("succesfully updated listing item count");
+          }
+        });
+      }
+    });
+  }
+}
+generateRandomReviewsCountForItem();

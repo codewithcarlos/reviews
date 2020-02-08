@@ -20,6 +20,27 @@ app.get("/listings", (req, res) => {
   });
 });
 
+app.get("/listings/pictures", (req, res) => {
+  console.log("triggered");
+  db.getListingPictures(req.query.id, (err, data) => {
+    if (err) {
+      return res.status(404).send("error retrieving more data for listing");
+    }
+    console.log("pics", data);
+    res.status(200).send(data);
+  });
+});
+
+app.get("/listings/more", (req, res) => {
+  db.getMoreReviews(req.query.id, (err, data) => {
+    if (err) {
+      return res.status(404).send("error retrieving more data for listing");
+    }
+    // console.log("more data", data);
+    res.status(200).send(data);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewsTab = () => {
+const ReviewsTab = ({ reviewsForItem, reviewsCount, getMoreReviews }) => {
   return (
     <div className="wt-tab-container col-xs-12 pl-xs-0 wt-mb-xs-4">
       <div className="wt-tab" role="tablist" id="reviews-tab-list">
@@ -12,7 +12,7 @@ const ReviewsTab = () => {
           tabIndex="0"
           id="same-listing-reviews-tab"
         >
-          For this item (12)
+          For this item ({reviewsForItem})
         </button>
         <button
           className="wt-tab__item"
@@ -22,7 +22,7 @@ const ReviewsTab = () => {
           tabIndex="1"
           id="shop-reviews-tab"
         >
-          For this shop (285)
+          For this shop ({reviewsCount})
         </button>
       </div>
     </div>

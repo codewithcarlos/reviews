@@ -9,9 +9,13 @@
 
 #reviews {
   text-size-adjust: 100%;
+  padding-left: 74px;
 }
 #reviews h3 {
   margin: 0px;
+}
+#reviews ul {
+  padding: 0;
 }
 #reviews .b {
   font-weight: 600 !important;
@@ -65,7 +69,7 @@
   padding-right: 48px;
 }
 #reviews .col-xs-8 {
-  width: 66.66667%;
+  width: 64%;
 }
 #reviews .etsy-icon {
   display: inline-block;
@@ -448,6 +452,9 @@
 }
 
 /* carousel */
+#reviews .customer-photos {
+  max-width: 758px;
+}
 #reviews .mb-xs-3 {
   margin-bottom: 18px;
 }
@@ -458,6 +465,8 @@
 #reviews .carousel-navigate .btn {
   border: none;
   font-size: 1.5rem;
+  padding: 3px;
+  margin: 0 10px;
 }
 #reviews .carousel-navigate .btn:hover {
   text-decoration: none !important;
@@ -471,4 +480,41 @@
 
 #reviews .no-reviews .stars-svg-star {
   color: #e1e3df;
+}
+#reviews .block-grid-item {
+  /* width: 20%; */
+}
+#reviews .flex-xs-none {
+  flex: 0 0 auto !important;
+}
+#reviews .block-grid-item {
+  padding: 9px;
+}
+#reviews .block-grid-item:first-child {
+  padding-left: 0px;
+}
+#reviews .block-grid-item img {
+  /* height: 135px;
+  max-width: 135px; */
+  height: 137.188px;
+  max-width: 137.188px;
+}
+#reviews .unstyled-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  padding: 0;
+  height: inherit;
+  text-align: left;
+  color: #222222;
+  font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto",
+    "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+#reviews .hide {
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
 }
