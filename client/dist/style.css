@@ -494,10 +494,9 @@
   padding-left: 0px;
 }
 #reviews .block-grid-item img {
-  /* height: 135px;
-  max-width: 135px; */
   height: 137.188px;
   max-width: 137.188px;
+  width: 137.188px;
 }
 #reviews .unstyled-button {
   background-color: transparent;

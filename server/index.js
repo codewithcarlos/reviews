@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
 app.get("/listings", (req, res) => {
-  db.getReviewsForUser(req.query.id, (err, data) => {
+  // console.log("listings", req.query.order);
+  db.getReviewsForListing(req.query.id, req.query.order, (err, data) => {
     if (err) {
       return res.status(404).send("listing not found");
     }
@@ -21,22 +22,21 @@ app.get("/listings", (req, res) => {
 });
 
 app.get("/listings/pictures", (req, res) => {
-  console.log("triggered");
+  // console.log("pictures", req.query.id);
   db.getListingPictures(req.query.id, (err, data) => {
     if (err) {
       return res.status(404).send("error retrieving more data for listing");
     }
-    console.log("pics", data);
     res.status(200).send(data);
   });
 });
 
 app.get("/listings/more", (req, res) => {
-  db.getMoreReviews(req.query.id, (err, data) => {
+  // console.log("listings more", req.query.order);
+  db.getMoreReviews(req.query.id, req.query.order, (err, data) => {
     if (err) {
       return res.status(404).send("error retrieving more data for listing");
     }
-    // console.log("more data", data);
     res.status(200).send(data);
   });
 });

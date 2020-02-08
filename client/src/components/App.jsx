@@ -25,7 +25,8 @@ class App extends React.Component {
       carouselPixels: 0,
       carouselStyle: `translate(0px, 0px)`,
       sellerPics: [],
-      sellerTitles: []
+      sellerTitles: [],
+      sellerTabSelected: false
     };
     this.getListingReviews = this.getListingReviews.bind(this);
     this.changeURL = this.changeURL.bind(this);
@@ -33,11 +34,11 @@ class App extends React.Component {
     this.scrollLeft = this.scrollLeft.bind(this);
     this.scrollRight = this.scrollRight.bind(this);
     this.getListingPictures = this.getListingPictures.bind(this);
+    this.getSellerReviews = this.getSellerReviews.bind(this);
   }
 
   componentDidMount() {
     this.getListingReviews();
-    // this.getListingPictures();
     window.addEventListener("itemChanged", event => {
       this.setState({ listingId: Number(event.detail.listingId) }, () =>
         this.getListingReviews()
@@ -45,11 +46,12 @@ class App extends React.Component {
     });
   }
 
-  getListingReviews() {
+  getListingReviews(order = "DESC") {
     axios
       .get(`/listings`, {
         params: {
-          id: this.state.listingId
+          id: this.state.listingId,
+          order
         },
         baseURL
       })
@@ -123,11 +125,12 @@ class App extends React.Component {
       });
   }
 
-  getMoreReviews() {
+  getMoreReviews(order) {
     axios
       .get(`/listings/more`, {
         params: {
-          id: this.state.listingId
+          id: this.state.listingId,
+          order
         },
         baseURL
       })
@@ -180,10 +183,19 @@ class App extends React.Component {
   }
 
   scrollRight() {
-    // if (this.state.carouselPixels <= -761 * 5) return;
+    if (
+      this.state.carouselPixels <=
+      -776 * Math.floor((this.state.sellerPics.length - 1) / 5)
+    )
+      return;
     let newPixel = this.state.carouselPixels - 776;
     let newStyle = `translate(${newPixel}px, 0px)`;
     this.setState({ carouselPixels: newPixel, carouselStyle: newStyle });
+  }
+
+  getSellerReviews(order, sellerTabSelected) {
+    this.getListingReviews(order);
+    this.setState({ sellerTabSelected });
   }
 
   render() {
@@ -204,7 +216,6 @@ class App extends React.Component {
       return (
         <div className="col-xs-8 pr-xs-8">
           <hr />
-          <div data-lazy-load-component-trigger=""></div>
           <ReviewsContainer
             messages={this.state.messages}
             reviewerAvatars={this.state.reviewerAvatars}
@@ -217,6 +228,8 @@ class App extends React.Component {
             images={this.state.images}
             getMoreReviews={this.getMoreReviews}
             showMoreButton={this.state.showMoreButton}
+            getSellerReviews={this.getSellerReviews}
+            sellerTabSelected={this.state.sellerTabSelected}
           />
           <ReviewsCarousel
             scrollLeft={this.scrollLeft}

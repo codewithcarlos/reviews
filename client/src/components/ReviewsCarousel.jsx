@@ -49,50 +49,6 @@ const ReviewsCarousel = ({
                   title={sellerTitles[index]}
                 />
               ))}
-              {/* <div className="block-grid-item">
-                <button className="unstyled-button">
-                  <img
-                    src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                    alt="test"
-                  />
-                </button>
-              </div>
-              <div className="block-grid-item">
-                <img
-                  src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                  alt="test"
-                />
-              </div>
-              <div className="block-grid-item">
-                <img
-                  src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                  alt="test"
-                />
-              </div>
-              <div className="block-grid-item">
-                <img
-                  src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                  alt="test"
-                />
-              </div>
-              <div className="block-grid-item">
-                <img
-                  src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                  alt="test"
-                />
-              </div>
-              <div className="block-grid-item">
-                <img
-                  src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                  alt="test"
-                />
-              </div>
-              <div className="block-grid-item">
-                <img
-                  src="https://i.etsystatic.com/iap/16f454/2156707950/iap_300x300.2156707950_2kqiuggg.jpg?version=0"
-                  alt="test"
-                />
-              </div> */}
             </ul>
           </div>
         </div>

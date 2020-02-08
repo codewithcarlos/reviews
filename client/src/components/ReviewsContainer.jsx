@@ -14,15 +14,26 @@ const ReviewsContainer = ({
   title,
   images,
   getMoreReviews,
-  showMoreButton
+  showMoreButton,
+  getSellerReviews,
+  sellerTabSelected
 }) => {
   return (
     <div className="reviews-container appears-ready">
       <Ratings reviewsCount={reviewsCount} />
-      <ReviewsTab reviewsCount={reviewsCount} reviewsForItem={reviewsForItem} />
+      {reviewsForItem !== reviewsCount && (
+        <ReviewsTab
+          reviewsCount={reviewsCount}
+          reviewsForItem={reviewsForItem}
+          getSellerReviews={getSellerReviews}
+          sellerTabSelected={sellerTabSelected}
+        />
+      )}
       {messages.map(
         (value, index) =>
-          messages[index] !== null && (
+          (sellerTabSelected
+            ? index < reviewsCount
+            : index < reviewsForItem) && (
             <ReviewCard
               message={messages[index]}
               reviewerAvatar={reviewerAvatars[index]}
@@ -43,7 +54,9 @@ const ReviewsContainer = ({
             ? "btn btn-link b pl-xs-1 pl-md-0 pt-xs-2 pr-xs-2 pr-md-0"
             : "btn btn-link b pl-xs-1 pl-md-0 pt-xs-2 pr-xs-2 pr-md-0 hide"
         }
-        onClick={getMoreReviews}
+        onClick={() =>
+          sellerTabSelected ? getMoreReviews("ASC") : getMoreReviews("DESC")
+        }
       >
         <span aria-hidden="true">+ More</span>
       </button>
