@@ -4,7 +4,8 @@ import axios from "axios";
 import ReviewsCarousel from "./ReviewsCarousel.jsx";
 import Star from "./Star.jsx";
 
-const baseURL = "http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/";
+const baseURL =
+  "http://etsyreviews-env.rkxrh83rhs.us-east-1.elasticbeanstalk.com/";
 // const baseURL = "";
 
 class App extends React.Component {
@@ -70,6 +71,8 @@ class App extends React.Component {
           response.data[0].title.length > 47
             ? response.data[0].title.slice(0, 50) + "..."
             : response.data[0].title;
+        const carouselPixels = 0;
+        const carouselStyle = `translate(0px, 0px)`;
 
         response.data.forEach(review => {
           const randomIndex = Math.floor(Math.random() * 10);
@@ -92,7 +95,10 @@ class App extends React.Component {
           listingId,
           title,
           images,
-          showMoreButton: true
+          showMoreButton: true,
+          carouselPixels,
+          carouselStyle,
+          sellerTabSelected: order === "DESC" ? false : true
         });
       })
       .then(() => {
