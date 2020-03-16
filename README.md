@@ -22,4 +22,4 @@ One of the main challenges of building out the reviews component was not being a
 
 Also, because the user info was private, I decided to randomly choose which user uploaded a photo with their review to simulate more realistic data. Moreover, since the Etsy API did not provide info on which exact product a review pertained to (it just provides all reviews for the particular seller), in order to simulate an effect "For this shop" tab that differentiates it from the "For this item" tab, I simply pulled the data in reverse order by date. This decision was made because the focus of the application was the front end.
 
-Lastly I accounted for the fact that sometimes a seller only sells one product, in which case the component only displays one tab. I also accounted for the fact that sometimes a product doesn't have a review yet.
+Lastly, I accounted for the fact that sometimes a seller only sells one product, in which case the component only displays one tab. I also accounted for the fact that sometimes a product doesn't have a review yet.
